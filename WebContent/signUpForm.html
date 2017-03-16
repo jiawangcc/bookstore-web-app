@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head><title>Sign Up</title>
+		<link href="css/signin.css" rel="stylesheet">
+	</head>
+	<body>
+		<form action="user/register" method="post">
+			
+				<h1> Sign up form</h1>
+				<div><span class="star">*</span><label> Email : </label>
+					<input type="text" name="email" id="email" required="required"/></div><br>
+					
+				<div><span class="star">*</span><label>  Password: </label>
+					<input type="password" name="passwd" id="passwd"  required="required"/></div><br>
+					
+				<div><span class="star">*</span><label>  Confirm Password:  </label>
+					<input type="password" name="repasswd" id="repasswd" required="required"/></div><br>
+					
+				<div><span class="star">*</span><label>  Name: </label>
+				    <input type="text" name="name" id="name" required="required"/></div><br>
+				
+				<div id="warning" class="feedback"></div>
+				<input type="submit" value="Sign Up" id="submit"/><br><br>
+			
+			<div><span class="star">*</span><label>Mandatory Information</label></div><br/>
+		</form>
+		<script>
+   		var elMsg = document.getElementById('warning');
+		
+		function loginCheck(){
+			
+	        if(document.getElementById('name').value==""){
+	                elMsg.textContent= "Pleaes enter your name";
+	                document.getElementById('name').focus();
+	                return false;
+	        }
+	        if(document.getElementById('passwd').value==""){
+	              	elMsg.textContent = "Please enter your password";
+	                document.getElementById('passwd').focus();
+	                return false;
+	        }
+	        if(document.getElementById('repasswd').value==""){
+	        	elMsg.textContent = "Please confirm your password";
+                document.getElementById('repasswd').focus();
+                return false;
+	        }
+	        if(document.getElementById('passwd').value != document.getElementById('repasswd').value){
+                elMsg.textContent = "The new password and confirmation password do not match.";
+                document.getElementById('passwd').focus();
+                return false;
+        	}
+	        if(document.getElementById('email').value==""){
+	        	elMsg.textContent = "Please enter your email";
+                document.getElementById('email').focus();
+                return false;
+	        }
+		}
+		
+		var elSubmit = document.getElementById('submit');
+		
+		elSubmit.onclick =loginCheck;
+		
+	</script>
+	</body>
+</html>
